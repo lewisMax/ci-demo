@@ -1,0 +1,33 @@
+name: 打包应用并上传云服务器
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    step:
+      - name: 迁出代码
+        uses: actions/checkout@v2
+
+      - name: 安装nodejs
+        uses: actions/setup-node@v2
+        with:
+          node-version: v14.16.1
+
+      - name: 安装依赖并打包
+        run: |
+          yarn
+          yarn build
+
+      - name: 上传云服务器
+        uses: easing-themes/ssh-deploy@v2
+        env:
+          SSH_PRIAVTE_KEY: ${{ secrets.PRIAVTE_KEY }}
+          ARGS: '-avzr --delete'
+          REMOTE_HOST: 'caojinyu.top'
+          REMOTE_USER: 'root'
+          SOURCE: 'dist'
+          TARGET: '/usr/share/nginx/html'
