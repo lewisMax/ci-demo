@@ -12,7 +12,7 @@ function App() {
         <h1>Hello World!</h1>
         <p>test 123456</p>
         <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
+          <button type="button" onClick={() => setCount((count) => count + 2)}>
             count is: {count}
           </button>
         </p>
