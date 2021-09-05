@@ -23,7 +23,7 @@ jobs:
           yarn build
 
       - name: 上传云服务器
-        uses: easing-themes/ssh-deploy@v2
+        uses: easingthemes/ssh-deploy@v2
         env:
           SSH_PRIAVTE_KEY: ${{ secrets.PRIAVTE_KEY }}
           ARGS: '-avzr --delete'
