@@ -27,7 +27,7 @@ jobs:
         env:
           SSH_PRIAVTE_KEY: ${{ secrets.PRIAVTE_KEY }}
           ARGS: '-avzr --delete'
-          REMOTE_HOST: 'caojinyu.top'
+          REMOTE_HOST: '49.232.92.35'
           REMOTE_USER: 'root'
           SOURCE: 'dist'
           TARGET: '/usr/share/nginx/html'
